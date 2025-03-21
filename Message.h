@@ -1,31 +1,31 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <string>
 
 struct Message
 {
-	std::string _message; // сообщение
-	std::string _recipient; // получатель
-	std::string _sender; // отправитель
+	std::string _message; // СЃРѕРѕР±С‰РµРЅРёРµ
+	std::string _recipient; // РїРѕР»СѓС‡Р°С‚РµР»СЊ
+	std::string _sender; // РѕС‚РїСЂР°РІРёС‚РµР»СЊ
 
-	Message() // конструткор
+	Message() // РєРѕРЅСЃС‚СЂСѓС‚РєРѕСЂ
 	{
 		_message = "-";
 		_recipient = "-";
 	}
-	~Message() // деструктор
+	~Message() // РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 	{
 
 	}
-	void setMessage() //  ввод сообщения
+	void setMessage() //  РІРІРѕРґ СЃРѕРѕР±С‰РµРЅРёСЏ
 	{
 		if (std::cin.peek() == '\n')
 		{
-			std::cin.get();// убирает оставшийся в потоке символ перехода на новую строку
+			std::cin.get();// СѓР±РёСЂР°РµС‚ РѕСЃС‚Р°РІС€РёР№СЃСЏ РІ РїРѕС‚РѕРєРµ СЃРёРјРІРѕР» РїРµСЂРµС…РѕРґР° РЅР° РЅРѕРІСѓСЋ СЃС‚СЂРѕРєСѓ
 		}
 		std::getline(std::cin, _message);
 	}
-	void getMessage() // вывод сообщения
+	void getMessage() // РІС‹РІРѕРґ СЃРѕРѕР±С‰РµРЅРёСЏ
 	{
 		std::cout << _message;
 	}

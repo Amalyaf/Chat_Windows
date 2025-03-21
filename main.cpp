@@ -1,4 +1,4 @@
-#include "Chat.h"
+﻿#include "Chat.h"
 
 int main()
 {

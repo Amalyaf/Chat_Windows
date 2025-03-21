@@ -1,46 +1,46 @@
-#pragma once
+п»ї#pragma once
 #include <vector>
 #include "Users.h"
 #include "Message.h"
 
-constexpr auto userData = "C:/Windows/Temp/userData.txt";	// файл для хранения данных пользователей 
-constexpr auto user_count = "C:/Windows/Temp/user_count.txt";	// файл для хранения кол-ва зарегистрированных пользователей
-constexpr auto private_message = "C:/Windows/Temp/private_message.txt";	// файл для хранения непросмотренных личных сообщений
-constexpr auto public_message = "C:/Windows/Temp/public_message.txt";	// файл для хранения непрочитанных общих сообщений
-constexpr auto prvt_msg_count = "C:/Windows/Temp/private_message_count.txt";   // файл для хранения кол-ва личных непрочитанных сообщений
-constexpr auto pblc_msg_count = "C:/Windows/Temp/public_message_count.txt";   // файл для хранения кол-ва общих непрочитанных сообщений
+constexpr auto userData = "C:/Windows/Temp/userData.txt";	// С„Р°Р№Р» РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РґР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ 
+constexpr auto user_count = "C:/Windows/Temp/user_count.txt";	// С„Р°Р№Р» РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РєРѕР»-РІР° Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
+constexpr auto private_message = "C:/Windows/Temp/private_message.txt";	// С„Р°Р№Р» РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РЅРµРїСЂРѕСЃРјРѕС‚СЂРµРЅРЅС‹С… Р»РёС‡РЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№
+constexpr auto public_message = "C:/Windows/Temp/public_message.txt";	// С„Р°Р№Р» РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РЅРµРїСЂРѕС‡РёС‚Р°РЅРЅС‹С… РѕР±С‰РёС… СЃРѕРѕР±С‰РµРЅРёР№
+constexpr auto prvt_msg_count = "C:/Windows/Temp/private_message_count.txt";   // С„Р°Р№Р» РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РєРѕР»-РІР° Р»РёС‡РЅС‹С… РЅРµРїСЂРѕС‡РёС‚Р°РЅРЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№
+constexpr auto pblc_msg_count = "C:/Windows/Temp/public_message_count.txt";   // С„Р°Р№Р» РґР»СЏ С…СЂР°РЅРµРЅРёСЏ РєРѕР»-РІР° РѕР±С‰РёС… РЅРµРїСЂРѕС‡РёС‚Р°РЅРЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№
 
 class Chat
 {
 private:
-	std::vector<Users> allUsers; // все зарегистрированные пользователи
-	std::string _recipient; //получатель сообщения
-	std::string _sender; // отправитель сообщения
-	std::string _login; // логин авторизованного пользователя
-	std::string _password; // пароль авторизованного пользователя
-	std::vector<Message>allMessage; // все новые приватные сообщения
-	std::vector<Message>allPublicMessage; // все новые общие сообщения
-	std::vector<Message>viewedMessage; // просмотренные сообщения
-	bool _status = false; // если был выполнен вход статус = true, в противном случае - false.
+	std::vector<Users> allUsers; // РІСЃРµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё
+	std::string _recipient; //РїРѕР»СѓС‡Р°С‚РµР»СЊ СЃРѕРѕР±С‰РµРЅРёСЏ
+	std::string _sender; // РѕС‚РїСЂР°РІРёС‚РµР»СЊ СЃРѕРѕР±С‰РµРЅРёСЏ
+	std::string _login; // Р»РѕРіРёРЅ Р°РІС‚РѕСЂРёР·РѕРІР°РЅРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	std::string _password; // РїР°СЂРѕР»СЊ Р°РІС‚РѕСЂРёР·РѕРІР°РЅРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	std::vector<Message>allMessage; // РІСЃРµ РЅРѕРІС‹Рµ РїСЂРёРІР°С‚РЅС‹Рµ СЃРѕРѕР±С‰РµРЅРёСЏ
+	std::vector<Message>allPublicMessage; // РІСЃРµ РЅРѕРІС‹Рµ РѕР±С‰РёРµ СЃРѕРѕР±С‰РµРЅРёСЏ
+	std::vector<Message>viewedMessage; // РїСЂРѕСЃРјРѕС‚СЂРµРЅРЅС‹Рµ СЃРѕРѕР±С‰РµРЅРёСЏ
+	bool _status = false; // РµСЃР»Рё Р±С‹Р» РІС‹РїРѕР»РЅРµРЅ РІС…РѕРґ СЃС‚Р°С‚СѓСЃ = true, РІ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ - false.
 public:
-	Chat(); // конструктор
-	~Chat(); // деструктор
-	void writeUsers() const; // метод для записи данных о пользователях в файл
-	void writeMessage() const; // метод для записи данных о сообщениях в файл
-	void readUsers(); // метод для чтения данных о пользователях из файла
-	void readPrivateMessage(); // метод для чтения личных сообщений из файла
-	void readPublicMessage(); // метод для чтения общих сообщений из файла			   
-	int getReadUsersStatus(); // метод выводит 1, если есть файл userData, иначе -1
-	void getChat(); // метод выводит данные пользователя
-	void enter(); // авторизация пользователя
-	void registration(); //  регистрация пользователя
-	void sendPrivateMessage(); // отправка личных сообщений
-	void sendPublicMessage(); // отправка публичных сообщений
-	bool getstatus(); // метод выводит статус авторизации (_status)
-	void exit(); // разлогинить авторизованного пользователя
-	void printMessage(std::string recipient); // вывод на экран новых сообщений
-	void deletePrivateMessage(std::string recipient); // перемещение прочитанных личных сообщений в viewedMessage и их удаление из allMessage
-	void deletePublicMessage(std::string recipient); // удаление прочитанных общих сообщений из allPublicMessage
-	void printAllMessage(); // вывод на экран всех просмотренных личных сообщений
-	void start(); // начало работы программы
+	Chat(); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	~Chat(); // РґРµСЃС‚СЂСѓРєС‚РѕСЂ
+	void writeUsers() const; // РјРµС‚РѕРґ РґР»СЏ Р·Р°РїРёСЃРё РґР°РЅРЅС‹С… Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏС… РІ С„Р°Р№Р»
+	void writeMessage() const; // РјРµС‚РѕРґ РґР»СЏ Р·Р°РїРёСЃРё РґР°РЅРЅС‹С… Рѕ СЃРѕРѕР±С‰РµРЅРёСЏС… РІ С„Р°Р№Р»
+	void readUsers(); // РјРµС‚РѕРґ РґР»СЏ С‡С‚РµРЅРёСЏ РґР°РЅРЅС‹С… Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏС… РёР· С„Р°Р№Р»Р°
+	void readPrivateMessage(); // РјРµС‚РѕРґ РґР»СЏ С‡С‚РµРЅРёСЏ Р»РёС‡РЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№ РёР· С„Р°Р№Р»Р°
+	void readPublicMessage(); // РјРµС‚РѕРґ РґР»СЏ С‡С‚РµРЅРёСЏ РѕР±С‰РёС… СЃРѕРѕР±С‰РµРЅРёР№ РёР· С„Р°Р№Р»Р°			   
+	int getReadUsersStatus(); // РјРµС‚РѕРґ РІС‹РІРѕРґРёС‚ 1, РµСЃР»Рё РµСЃС‚СЊ С„Р°Р№Р» userData, РёРЅР°С‡Рµ -1
+	void getChat(); // РјРµС‚РѕРґ РІС‹РІРѕРґРёС‚ РґР°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	void enter(); // Р°РІС‚РѕСЂРёР·Р°С†РёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	void registration(); //  СЂРµРіРёСЃС‚СЂР°С†РёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	void sendPrivateMessage(); // РѕС‚РїСЂР°РІРєР° Р»РёС‡РЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№
+	void sendPublicMessage(); // РѕС‚РїСЂР°РІРєР° РїСѓР±Р»РёС‡РЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№
+	bool getstatus(); // РјРµС‚РѕРґ РІС‹РІРѕРґРёС‚ СЃС‚Р°С‚СѓСЃ Р°РІС‚РѕСЂРёР·Р°С†РёРё (_status)
+	void exit(); // СЂР°Р·Р»РѕРіРёРЅРёС‚СЊ Р°РІС‚РѕСЂРёР·РѕРІР°РЅРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	void printMessage(std::string recipient); // РІС‹РІРѕРґ РЅР° СЌРєСЂР°РЅ РЅРѕРІС‹С… СЃРѕРѕР±С‰РµРЅРёР№
+	void deletePrivateMessage(std::string recipient); // РїРµСЂРµРјРµС‰РµРЅРёРµ РїСЂРѕС‡РёС‚Р°РЅРЅС‹С… Р»РёС‡РЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№ РІ viewedMessage Рё РёС… СѓРґР°Р»РµРЅРёРµ РёР· allMessage
+	void deletePublicMessage(std::string recipient); // СѓРґР°Р»РµРЅРёРµ РїСЂРѕС‡РёС‚Р°РЅРЅС‹С… РѕР±С‰РёС… СЃРѕРѕР±С‰РµРЅРёР№ РёР· allPublicMessage
+	void printAllMessage(); // РІС‹РІРѕРґ РЅР° СЌРєСЂР°РЅ РІСЃРµС… РїСЂРѕСЃРјРѕС‚СЂРµРЅРЅС‹С… Р»РёС‡РЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№
+	void start(); // РЅР°С‡Р°Р»Рѕ СЂР°Р±РѕС‚С‹ РїСЂРѕРіСЂР°РјРјС‹
 };

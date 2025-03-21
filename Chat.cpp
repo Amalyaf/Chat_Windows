@@ -1,4 +1,4 @@
-#include "Chat.h"
+п»ї#include "Chat.h"
 #include <algorithm>
 #include "bad_login.h"
 #include "bad_password.h"
@@ -12,21 +12,21 @@ Chat::Chat()
 {
 	vector<Users> allUsers;
 
-	// если есть файл с данными ранее зарегистрированных пользователей, то вызвать методы для считывания данных из файлов
+	// РµСЃР»Рё РµСЃС‚СЊ С„Р°Р№Р» СЃ РґР°РЅРЅС‹РјРё СЂР°РЅРµРµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№, С‚Рѕ РІС‹Р·РІР°С‚СЊ РјРµС‚РѕРґС‹ РґР»СЏ СЃС‡РёС‚С‹РІР°РЅРёСЏ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»РѕРІ
 	if (getReadUsersStatus() == 1) {
-		std::cout << "Конструктор! Файлы есть" << std::endl;
+		std::cout << "РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ! Р¤Р°Р№Р»С‹ РµСЃС‚СЊ" << std::endl;
 		readUsers();
 		readPrivateMessage();
 		readPublicMessage();
 	}
 	else {
-		std::cout << "Конструктор! Файлов нет!" << std::endl;
+		std::cout << "РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ! Р¤Р°Р№Р»РѕРІ РЅРµС‚!" << std::endl;
 	}
 }
 
 Chat::~Chat() {
-	writeUsers(); // метод для записи данных зарегистрированных пользователей в файл
-	writeMessage(); // метод для записи личных и публичных сообщений в отдельные файлы
+	writeUsers(); // РјРµС‚РѕРґ РґР»СЏ Р·Р°РїРёСЃРё РґР°РЅРЅС‹С… Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РІ С„Р°Р№Р»
+	writeMessage(); // РјРµС‚РѕРґ РґР»СЏ Р·Р°РїРёСЃРё Р»РёС‡РЅС‹С… Рё РїСѓР±Р»РёС‡РЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№ РІ РѕС‚РґРµР»СЊРЅС‹Рµ С„Р°Р№Р»С‹
 }
 
 
@@ -45,7 +45,7 @@ void Chat::enter()
 	{
 		try
 		{
-			cout << "\nДля входа введите логин: \n";
+			cout << "\nР”Р»СЏ РІС…РѕРґР° РІРІРµРґРёС‚Рµ Р»РѕРіРёРЅ: \n";
 			cin >> _login;
 			Users user;
 			user._login = _login;
@@ -59,7 +59,7 @@ void Chat::enter()
 			else
 			{
 				user = *result;
-				cout << "Введите пароль: \n";
+				cout << "Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ: \n";
 				cin >> _password;
 
 				if (user._password != _password)
@@ -92,13 +92,13 @@ void Chat::registration()
 	char c = 'y';
 	while (c != 'n')
 	{
-		cout << "\nРегистрация нового пользователя\n";
+		cout << "\nР РµРіРёСЃС‚СЂР°С†РёСЏ РЅРѕРІРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ\n";
 		Users user;
 		user.setUser();
 		vector<Users>::iterator result = find(allUsers.begin(), allUsers.end(), user);
 		if (result != allUsers.end())
 		{
-			cout << "\nПользователь с таким логином уже существует!\nХотите повторить попытку?(y/n)";
+			cout << "\nРџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ С‚Р°РєРёРј Р»РѕРіРёРЅРѕРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!\nРҐРѕС‚РёС‚Рµ РїРѕРІС‚РѕСЂРёС‚СЊ РїРѕРїС‹С‚РєСѓ?(y/n)";
 			cin >> c;
 			cout << endl;
 		}
@@ -116,14 +116,14 @@ void Chat::sendPrivateMessage()
 	_sender = _login;
 	while (c != 'n')
 	{
-		cout << "Кому: ";
+		cout << "РљРѕРјСѓ: ";
 		cin >> _recipient;
 		Users user;
 		user._login = _recipient;
 		vector<Users>::iterator result = find(allUsers.begin(), allUsers.end(), user);
 		if (result == allUsers.end())
 		{
-			cout << "\nПолучатель не найден!\nХотите повторить попытку?(y/n)";
+			cout << "\nРџРѕР»СѓС‡Р°С‚РµР»СЊ РЅРµ РЅР°Р№РґРµРЅ!\nРҐРѕС‚РёС‚Рµ РїРѕРІС‚РѕСЂРёС‚СЊ РїРѕРїС‹С‚РєСѓ?(y/n)";
 			cin >> c;
 		}
 
@@ -132,7 +132,7 @@ void Chat::sendPrivateMessage()
 			Message message;
 			message._recipient = _recipient;
 			message._sender = _sender;
-			cout << "\nВведите сообщение:\n";
+			cout << "\nР’РІРµРґРёС‚Рµ СЃРѕРѕР±С‰РµРЅРёРµ:\n";
 			message.setMessage();
 			allMessage.push_back(message);
 			c = 'n';
@@ -144,7 +144,7 @@ void Chat::sendPublicMessage()
 {
 	Message message;
 	message._sender = _login;
-	cout << "\nВведите групповое сообщение:\n";
+	cout << "\nР’РІРµРґРёС‚Рµ РіСЂСѓРїРїРѕРІРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ:\n";
 	message.setMessage();
 	for (vector<Users>::iterator it = allUsers.begin(); it < allUsers.end(); it++)
 	{
@@ -171,11 +171,11 @@ void Chat::printMessage(string recipient)
 			if (count == 1)
 			{
 				cout << "\n------------------------------------------------------\n";
-				cout << "У вас есть новые личные сообщения" << ": ";
+				cout << "РЈ РІР°СЃ РµСЃС‚СЊ РЅРѕРІС‹Рµ Р»РёС‡РЅС‹Рµ СЃРѕРѕР±С‰РµРЅРёСЏ" << ": ";
 			}
-			cout << "\nОтправитель: " << it->_sender << endl <<
-				"Получатель: " << it->_recipient << endl <<
-				"Сообщение: " << it->_message << endl;
+			cout << "\nРћС‚РїСЂР°РІРёС‚РµР»СЊ: " << it->_sender << endl <<
+				"РџРѕР»СѓС‡Р°С‚РµР»СЊ: " << it->_recipient << endl <<
+				"РЎРѕРѕР±С‰РµРЅРёРµ: " << it->_message << endl;
 		}
 	}
 	if (count != 0)
@@ -192,10 +192,10 @@ void Chat::printMessage(string recipient)
 			if (count == 1)
 			{
 				std::cout << "\n------------------------------------------------------\n";
-				std::cout << "У вас есть новые общие сообщения" << ": ";
+				std::cout << "РЈ РІР°СЃ РµСЃС‚СЊ РЅРѕРІС‹Рµ РѕР±С‰РёРµ СЃРѕРѕР±С‰РµРЅРёСЏ" << ": ";
 			}
-			cout << "\nОтправитель: " << it->_sender << endl <<
-				"Сообщение: " << it->_message << endl;
+			cout << "\nРћС‚РїСЂР°РІРёС‚РµР»СЊ: " << it->_sender << endl <<
+				"РЎРѕРѕР±С‰РµРЅРёРµ: " << it->_message << endl;
 		}
 	}
 	if (count != 0)
@@ -236,9 +236,9 @@ void Chat::printAllMessage()
 {
 	for (vector<Message>::iterator it = viewedMessage.begin(); it != viewedMessage.end(); it++)
 	{
-		cout << "\nОтправитель: " << it->_sender << endl <<
-			"Получатель: " << it->_recipient << endl <<
-			"Сообщение: " << it->_message << endl;
+		cout << "\nРћС‚РїСЂР°РІРёС‚РµР»СЊ: " << it->_sender << endl <<
+			"РџРѕР»СѓС‡Р°С‚РµР»СЊ: " << it->_recipient << endl <<
+			"РЎРѕРѕР±С‰РµРЅРёРµ: " << it->_message << endl;
 	}
 	cout << endl;
 }
@@ -335,7 +335,7 @@ void Chat::writeUsers() const {
 
 	fstream file = fstream(userData, ios::in | ios::out | ios::trunc);
 
-	//auto permissions = filesystem::perms::group_all | filesystem::perms::others_all; // права, которые хотим отобрать
+	//auto permissions = filesystem::perms::group_all | filesystem::perms::others_all; // РїСЂР°РІР°, РєРѕС‚РѕСЂС‹Рµ С…РѕС‚РёРј РѕС‚РѕР±СЂР°С‚СЊ
 	//filesystem::permissions(userData, permissions, filesystem::perm_options::remove);
 
 	for (int i = 0; i < allUsers.size(); i++)
@@ -358,7 +358,7 @@ void Chat::writeMessage() const {
 
 	fstream file_prvt_msg = fstream(private_message, ios::in | ios::out | ios::trunc);
 
-	//auto permissions = filesystem::perms::group_all | filesystem::perms::others_all; // права, которые хотим отобрать
+	//auto permissions = filesystem::perms::group_all | filesystem::perms::others_all; // РїСЂР°РІР°, РєРѕС‚РѕСЂС‹Рµ С…РѕС‚РёРј РѕС‚РѕР±СЂР°С‚СЊ
 	//filesystem::permissions(private_message, permissions, filesystem::perm_options::remove);
 
 	for (int i = 0; i < allMessage.size(); i++) {
@@ -500,35 +500,35 @@ void Chat::readPublicMessage() {
 
 void Chat::start() {
 
-	char c = 'y'; // условие выхода из цикла
+	char c = 'y'; // СѓСЃР»РѕРІРёРµ РІС‹С…РѕРґР° РёР· С†РёРєР»Р°
 
-	if (getReadUsersStatus() == 1) { // если есть файл с данными о ранее зарегистрированных пользователях,
-		// то сначала спрашиваем о регистрации нового пользователя и в зависимости от ответа выполняем регистрацию
-		getChat(); // вывод пользователей на экран, чтобы было видно логины и пароли 
-		cout << "\nХотите зарегистрировать ещё одного пользователя?(y/n)" << endl;
+	if (getReadUsersStatus() == 1) { // РµСЃР»Рё РµСЃС‚СЊ С„Р°Р№Р» СЃ РґР°РЅРЅС‹РјРё Рѕ СЂР°РЅРµРµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»СЏС…,
+		// С‚Рѕ СЃРЅР°С‡Р°Р»Р° СЃРїСЂР°С€РёРІР°РµРј Рѕ СЂРµРіРёСЃС‚СЂР°С†РёРё РЅРѕРІРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Рё РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РѕС‚РІРµС‚Р° РІС‹РїРѕР»РЅСЏРµРј СЂРµРіРёСЃС‚СЂР°С†РёСЋ
+		getChat(); // РІС‹РІРѕРґ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РЅР° СЌРєСЂР°РЅ, С‡С‚РѕР±С‹ Р±С‹Р»Рѕ РІРёРґРЅРѕ Р»РѕРіРёРЅС‹ Рё РїР°СЂРѕР»Рё 
+		cout << "\nРҐРѕС‚РёС‚Рµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ РµС‰С‘ РѕРґРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ?(y/n)" << endl;
 		cin >> c;
 	}
 	while (c == 'y') {
 		registration();
-		cout << "\nХотите зарегистрировать ещё одного пользователя?(y/n)" << endl;
+		cout << "\nРҐРѕС‚РёС‚Рµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ РµС‰С‘ РѕРґРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ?(y/n)" << endl;
 		cin >> c;
 		cout << endl;
 	}
 
 	getChat();
-	enter(); // авторизация
+	enter(); // Р°РІС‚РѕСЂРёР·Р°С†РёСЏ
 	c = 'y';
 	while (c != 'n')
 	{
-		if (getstatus()) // проверяем был ли выполнен вход
+		if (getstatus()) // РїСЂРѕРІРµСЂСЏРµРј Р±С‹Р» Р»Рё РІС‹РїРѕР»РЅРµРЅ РІС…РѕРґ
 		{
 			char message;
-			cout << "\nХотите отправить сообщение?(y/n)\n";
+			cout << "\nРҐРѕС‚РёС‚Рµ РѕС‚РїСЂР°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ?(y/n)\n";
 			cin >> c;
 
 			if (c == 'y')
 			{
-				cout << "\nВыберите тип отправляемого сообщения: 1-private, 2-public\n";
+				cout << "\nР’С‹Р±РµСЂРёС‚Рµ С‚РёРї РѕС‚РїСЂР°РІР»СЏРµРјРѕРіРѕ СЃРѕРѕР±С‰РµРЅРёСЏ: 1-private, 2-public\n";
 				cin >> message;
 				switch (message)
 				{
@@ -539,13 +539,13 @@ void Chat::start() {
 					sendPublicMessage();
 					break;
 				default:
-					cout << "\nНекорректный ввод!\n";
+					cout << "\nРќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ!\n";
 					break;
 				}
 			}
 			if (c == 'n')
 			{
-				cout << "\nХотите выполнить вход под другой учетной записью?(y/n)\n";
+				cout << "\nРҐРѕС‚РёС‚Рµ РІС‹РїРѕР»РЅРёС‚СЊ РІС…РѕРґ РїРѕРґ РґСЂСѓРіРѕР№ СѓС‡РµС‚РЅРѕР№ Р·Р°РїРёСЃСЊСЋ?(y/n)\n";
 				cin >> c;
 				if (c == 'y')
 				{
@@ -561,7 +561,7 @@ void Chat::start() {
 		else
 		{
 			c = 'n';
-			cout << "\nВход не выполнен!\n";
+			cout << "\nР’С…РѕРґ РЅРµ РІС‹РїРѕР»РЅРµРЅ!\n";
 		}
 	}
 }

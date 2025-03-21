@@ -1,18 +1,18 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 
 class Users
 {
 public:
-	std::string _name; // имя
-	std::string _login; // логин
-	std::string _password; // пароль
-	Users(); // конструктор
-	~Users() = default;// деструктор
-	void setUser(); // метод запрашивает данные пользователя
-	std::string getLogin(); // метод возвращает логин пользователя
-	std::string getPassword(); // метод возвращает пароль пользователя
-	std::string getName(); // метод возвращает имя пользователя
-	friend std::ostream& operator<<(std::ostream& output, const Users& user); // перегрузка оператора вывода
-	bool operator==(const Users& user); // перегрузка оператора вывода
+	std::string _name; // РёРјСЏ
+	std::string _login; // Р»РѕРіРёРЅ
+	std::string _password; // РїР°СЂРѕР»СЊ
+	Users(); // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	~Users() = default;// РґРµСЃС‚СЂСѓРєС‚РѕСЂ
+	void setUser(); // РјРµС‚РѕРґ Р·Р°РїСЂР°С€РёРІР°РµС‚ РґР°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	std::string getLogin(); // РјРµС‚РѕРґ РІРѕР·РІСЂР°С‰Р°РµС‚ Р»РѕРіРёРЅ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	std::string getPassword(); // РјРµС‚РѕРґ РІРѕР·РІСЂР°С‰Р°РµС‚ РїР°СЂРѕР»СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	std::string getName(); // РјРµС‚РѕРґ РІРѕР·РІСЂР°С‰Р°РµС‚ РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	friend std::ostream& operator<<(std::ostream& output, const Users& user); // РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РІС‹РІРѕРґР°
+	bool operator==(const Users& user); // РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РІС‹РІРѕРґР°
 };

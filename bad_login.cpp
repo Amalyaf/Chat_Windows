@@ -1,6 +1,6 @@
-#include "bad_login.h"
+п»ї#include "bad_login.h"
 
 const char* BadLogin::what() const noexcept
 {
-	return "\nПользователь не найден!\nХотите повторить ввод?(y/n):";
+	return "\nРџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РЅР°Р№РґРµРЅ!\nРҐРѕС‚РёС‚Рµ РїРѕРІС‚РѕСЂРёС‚СЊ РІРІРѕРґ?(y/n):";
 }

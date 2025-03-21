@@ -1,6 +1,6 @@
-#include "bad_password.h"
+п»ї#include "bad_password.h"
 
 const char* BadPassword::what() const noexcept
 {
-	return "\nНеправильный пароль!\nХотите повторить ввод?(y/n):";
+	return "\nРќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РїР°СЂРѕР»СЊ!\nРҐРѕС‚РёС‚Рµ РїРѕРІС‚РѕСЂРёС‚СЊ РІРІРѕРґ?(y/n):";
 }

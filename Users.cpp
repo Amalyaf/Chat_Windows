@@ -1,4 +1,4 @@
-#include "Users.h"
+ï»¿#include "Users.h"
 
 Users::Users()
 {
@@ -9,11 +9,11 @@ Users::Users()
 
 void Users::setUser()
 {
-	std::cout << "Ââåäèòå ëîãèí: \n";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð»Ð¾Ð³Ð¸Ð½: \n";
 	std::cin >> _login;
-	std::cout << "Ââåäèòå ïàðîëü: \n";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ: \n";
 	std::cin >> _password;
-	std::cout << "Ââåäèòå èìÿ: \n";
+	std::cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ: \n";
 	std::cin >> _name;
 }
 
@@ -39,8 +39,8 @@ bool Users::operator==(const Users& user)
 
 std::ostream& operator<<(std::ostream& output, const Users& user)
 {
-	output << "Ëîãèí ïîëüçîâàòåëÿ: " << user._login << '\n' <<
-		"Ïàðîëü: " << user._password << '\n' <<
-		"Èìÿ: " << user._name << "\n\n";
+	output << "Ð›Ð¾Ð³Ð¸Ð½ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ: " << user._login << '\n' <<
+		"ÐŸÐ°Ñ€Ð¾Ð»ÑŒ: " << user._password << '\n' <<
+		"Ð˜Ð¼Ñ: " << user._name << "\n\n";
 	return output;
 }
